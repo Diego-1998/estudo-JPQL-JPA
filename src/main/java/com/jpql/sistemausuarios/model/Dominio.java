@@ -14,8 +14,8 @@ public class Dominio {
 
     private String nome;
 
-    @OneToMany(mappedBy = "dominio")
-    private List<Usuario> usuarios;
+//    @OneToMany(mappedBy = "dominio")
+//    private List<Usuario> usuarios;
 
     public Integer getId() {
         return id;
@@ -33,24 +33,25 @@ public class Dominio {
         this.nome = nome;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
+//    public List<Usuario> getUsuarios() {
+//        return usuarios;
+//    }
+//
+//    public void setUsuarios(List<Usuario> usuarios) {
+//        this.usuarios = usuarios;
+//    }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dominio dominio = (Dominio) o;
-        return Objects.equals(id, dominio.id) && Objects.equals(nome, dominio.nome) && Objects.equals(usuarios, dominio.usuarios);
+        return Objects.equals(id, dominio.id) && Objects.equals(nome, dominio.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, usuarios);
+        return Objects.hash(id, nome);
     }
 }

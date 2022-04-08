@@ -83,12 +83,13 @@ public class Usuario {
 //        this.configuracao = configuracao;
 //    }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id) && Objects.equals(login, usuario.login) && Objects.equals(senha, usuario.senha) && Objects.equals(nome, usuario.nome) && Objects.equals(ultimoAcesso, usuario.ultimoAcesso) && Objects.equals(dominio, usuario.dominio) && Objects.equals(configuracao, usuario.configuracao);
+        return Objects.equals(id, usuario.id) && Objects.equals(login, usuario.login) && Objects.equals(senha, usuario.senha) && Objects.equals(nome, usuario.nome) && Objects.equals(ultimoAcesso, usuario.ultimoAcesso);
     }
 
     @Override
