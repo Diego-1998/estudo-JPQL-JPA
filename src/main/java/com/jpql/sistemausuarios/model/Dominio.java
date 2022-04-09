@@ -14,8 +14,8 @@ public class Dominio {
 
     private String nome;
 
-//    @OneToMany(mappedBy = "dominio")
-//    private List<Usuario> usuarios;
+    @OneToMany(mappedBy = "dominio")
+    private List<Usuario> usuarios;
 
     public Integer getId() {
         return id;
@@ -33,13 +33,13 @@ public class Dominio {
         this.nome = nome;
     }
 
-//    public List<Usuario> getUsuarios() {
-//        return usuarios;
-//    }
-//
-//    public void setUsuarios(List<Usuario> usuarios) {
-//        this.usuarios = usuarios;
-//    }
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
 
 
     @Override

@@ -21,9 +21,9 @@ public class Usuario {
 
     private LocalDateTime ultimoAcesso;
 
-//    @ManyToOne
-//    private Dominio dominio;
-//
+    @ManyToOne
+    private Dominio dominio;
+
 //    @OneToOne(mappedBy = "usuario")
 //    private Configuracao configuracao;
 
@@ -67,14 +67,14 @@ public class Usuario {
         this.ultimoAcesso = ultimoAcesso;
     }
 
-//    public Dominio getDominio() {
-//        return dominio;
-//    }
-//
-//    public void setDominio(Dominio dominio) {
-//        this.dominio = dominio;
-//    }
-//
+    public Dominio getDominio() {
+        return dominio;
+    }
+
+    public void setDominio(Dominio dominio) {
+        this.dominio = dominio;
+    }
+
 //    public Configuracao getConfiguracao() {
 //        return configuracao;
 //    }

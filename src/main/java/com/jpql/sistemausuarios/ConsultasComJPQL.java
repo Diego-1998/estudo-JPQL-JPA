@@ -1,10 +1,10 @@
 package com.jpql.sistemausuarios;
 
+import com.jpql.sistemausuarios.model.Dominio;
 import com.jpql.sistemausuarios.model.Usuario;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Queue;
 
 public class ConsultasComJPQL {
 
@@ -13,11 +13,20 @@ public class ConsultasComJPQL {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
-        primeirasConsultas(entityManager);
+        //primeirasConsultas(entityManager);
+
+        escolhendoORetorno(entityManager);
 
         entityManager.close();
         entityManagerFactory.close();
     }
+
+        public static void escolhendoORetorno(EntityManager entityManager){
+            String jpql = "select u.dominio from Usuario u where u.id = 1";
+            TypedQuery<Dominio> typedQuery = entityManager.createQuery(jpql, Dominio.class);
+            Dominio dominio = typedQuery.getSingleResult();
+            System.out.println(dominio.getId() + ", " + dominio.getNome());
+        }
 
         public static void  primeirasConsultas(EntityManager entityManager){
 
