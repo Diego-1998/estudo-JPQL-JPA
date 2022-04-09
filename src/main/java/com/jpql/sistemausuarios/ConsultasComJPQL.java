@@ -14,18 +14,31 @@ public class ConsultasComJPQL {
 
 
         //primeirasConsultas(entityManager);
+        //escolhendoORetorno(entityManager);
+         fazendoProjecoes(entityManager);
 
-        escolhendoORetorno(entityManager);
 
         entityManager.close();
         entityManagerFactory.close();
     }
+
+        public static void fazendoProjecoes(EntityManager entityManager){
+            String jpqlArr = "select id, login, nome from Usuario";
+            TypedQuery<Object[]> typedQueryArr = entityManager.createQuery(jpqlArr, Object[].class);
+            List<Object[]> listArr = typedQueryArr.getResultList();
+            listArr.forEach(arr -> System.out.println(String.format("%s, %s, %s", arr)));
+        }
 
         public static void escolhendoORetorno(EntityManager entityManager){
             String jpql = "select u.dominio from Usuario u where u.id = 1";
             TypedQuery<Dominio> typedQuery = entityManager.createQuery(jpql, Dominio.class);
             Dominio dominio = typedQuery.getSingleResult();
             System.out.println(dominio.getId() + ", " + dominio.getNome());
+
+            String jpqlNom = "select u.nome from Usuario u";
+            TypedQuery<String> typedQueryNom = entityManager.createQuery(jpqlNom, String.class);
+            List<String> listaNom = typedQueryNom.getResultList();
+            listaNom.forEach( nome -> System.out.println(nome));
         }
 
         public static void  primeirasConsultas(EntityManager entityManager){
