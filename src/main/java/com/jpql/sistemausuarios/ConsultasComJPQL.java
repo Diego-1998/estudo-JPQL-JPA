@@ -1,5 +1,6 @@
 package com.jpql.sistemausuarios;
 
+import com.jpql.sistemausuarios.dto.UsuarioDTO;
 import com.jpql.sistemausuarios.model.Dominio;
 import com.jpql.sistemausuarios.model.Usuario;
 
@@ -27,6 +28,12 @@ public class ConsultasComJPQL {
             TypedQuery<Object[]> typedQueryArr = entityManager.createQuery(jpqlArr, Object[].class);
             List<Object[]> listArr = typedQueryArr.getResultList();
             listArr.forEach(arr -> System.out.println(String.format("%s, %s, %s", arr)));
+
+            String jpqlDto = "select new com.jpql.sistemausuarios.dto.UsuarioDTO(id, login, nome)" +
+                 "from Usuario";
+            TypedQuery<UsuarioDTO> typedQueryDto = entityManager.createQuery(jpqlDto, UsuarioDTO.class);
+            List<UsuarioDTO> listDto = typedQueryDto.getResultList();
+            listDto.forEach(d -> System.out.println("DTO: " + d.getId() + ", " + d.getNome()));
         }
 
         public static void escolhendoORetorno(EntityManager entityManager){
