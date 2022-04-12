@@ -16,12 +16,20 @@ public class ConsultasComJPQL {
 
         //primeirasConsultas(entityManager);
         //escolhendoORetorno(entityManager);
-         fazendoProjecoes(entityManager);
-
+        //fazendoProjecoes(entityManager);
+          passandoParametros(entityManager);
 
         entityManager.close();
         entityManagerFactory.close();
     }
+
+        public static void passandoParametros(EntityManager entityManager){
+            String jpql = "select u from Usuario u where u.id = :idUsuario";
+            TypedQuery<Usuario> typedQuery = entityManager.createQuery(jpql, Usuario.class);
+            typedQuery.setParameter("idUsuario", 2);
+            Usuario usuario = typedQuery.getSingleResult();
+            System.out.println(usuario.getId() + " ," + usuario.getNome());
+        }
 
         public static void fazendoProjecoes(EntityManager entityManager){
             String jpqlArr = "select id, login, nome from Usuario";
