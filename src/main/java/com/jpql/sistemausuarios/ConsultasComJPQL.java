@@ -25,10 +25,18 @@ public class ConsultasComJPQL {
 
         public static void passandoParametros(EntityManager entityManager){
             String jpql = "select u from Usuario u where u.id = :idUsuario";
-            TypedQuery<Usuario> typedQuery = entityManager.createQuery(jpql, Usuario.class);
-            typedQuery.setParameter("idUsuario", 2);
+            TypedQuery<Usuario> typedQuery = entityManager
+                    .createQuery(jpql, Usuario.class)
+                    .setParameter("idUsuario", 1);
             Usuario usuario = typedQuery.getSingleResult();
             System.out.println(usuario.getId() + " ," + usuario.getNome());
+
+
+            String jpqlLog = "select u from Usuario u where u.login = :loginUsuario";
+            TypedQuery<Usuario> typedQueryLog = entityManager.createQuery(jpqlLog, Usuario.class);
+            typedQueryLog.setParameter("loginUsuario", "ria");
+
+
         }
 
         public static void fazendoProjecoes(EntityManager entityManager){
