@@ -34,11 +34,9 @@ public class ConsultasComJPQL {
 
             String jpqlLog = "select u from Usuario u where u.login = :loginUsuario";
             TypedQuery<Usuario> typedQueryLog = entityManager.createQuery(jpqlLog, Usuario.class);
-            typedQueryLog.setParameter("loginUsuario", "ria");
+            typedQueryLog.setParameter("loginUsuario", "rou");
             Usuario usuarioLog = typedQueryLog.getSingleResult();
             System.out.println(usuarioLog.getId() + ", " + usuarioLog.getNome());
-
-
         }
 
         public static void fazendoProjecoes(EntityManager entityManager){
