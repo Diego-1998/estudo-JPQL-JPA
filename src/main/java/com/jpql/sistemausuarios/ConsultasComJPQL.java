@@ -24,6 +24,11 @@ public class ConsultasComJPQL {
         entityManagerFactory.close();
     }
 
+        public static void fazendoLeftJoin(EntityManager entityManager){
+         String jpql = "select u from Usuario u left join u.configuracao c";
+
+        }
+
         public static void fazendoJoins(EntityManager entityManager){
          String jpql = "select u from Usuario u join u.dominio d where d.id = 1";
          TypedQuery<Usuario> typedQuery = entityManager.createQuery(jpql, Usuario.class);

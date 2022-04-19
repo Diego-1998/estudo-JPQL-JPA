@@ -24,8 +24,8 @@ public class Usuario {
     @ManyToOne
     private Dominio dominio;
 
-//    @OneToOne(mappedBy = "usuario")
-//    private Configuracao configuracao;
+    @OneToOne(mappedBy = "usuario")
+    private Configuracao configuracao;
 
     public Integer getId() {
         return id;
