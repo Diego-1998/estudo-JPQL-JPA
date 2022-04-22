@@ -18,7 +18,9 @@ public class ConsultasComJPQL {
         //escolhendoORetorno(entityManager);
         //fazendoProjecoes(entityManager);
         // passandoParametros(entityManager);
-        fazendoJoins(entityManager);
+       //fazendoJoins(entityManager);
+        fazendoLeftJoin(entityManager);
+
 
         entityManager.close();
         entityManagerFactory.close();
@@ -30,7 +32,14 @@ public class ConsultasComJPQL {
          List<Object[]> lista = typedQuery.getResultList();
 
          lista.forEach(arr -> {
-             String out = (Usuario)arr[0]
+             String out =  ((Usuario) arr[0]).getNome();
+             if (arr[1] == null) {
+                 out += ", NULL";
+             } else {
+                 out += ((Dominio) arr[1]).getNome();
+             }
+             System.out.println(out);
+
          });
 
         }

@@ -7,4 +7,4 @@ insert into usuario (id, nome, login, senha, dominio_id, ultimoAcesso) values (3
 insert into usuario (id, nome, login, senha, dominio_id, ultimoAcesso) values (4, 'Eli Locker', 'eli', '123', 1, sysdate());
 insert into usuario (id, nome, login, senha, dominio_id, ultimoAcesso) values (5, 'Emily Lightman', 'emily', '123', 1, sysdate());
 
-insert into configuracao (id, usuario_id, receberNotificacoes, encerrarNotificacoes) values (1, 1, false, false);
+insert into configuracao (usuario_id, receberNotificacoes, encerrarNotificacoes) values (1, false, false);
