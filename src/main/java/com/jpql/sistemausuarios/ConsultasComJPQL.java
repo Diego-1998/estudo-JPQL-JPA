@@ -1,6 +1,7 @@
 package com.jpql.sistemausuarios;
 
 import com.jpql.sistemausuarios.dto.UsuarioDTO;
+import com.jpql.sistemausuarios.model.Configuracao;
 import com.jpql.sistemausuarios.model.Dominio;
 import com.jpql.sistemausuarios.model.Usuario;
 
@@ -36,7 +37,7 @@ public class ConsultasComJPQL {
              if (arr[1] == null) {
                  out += ", NULL";
              } else {
-                 out += ((Dominio) arr[1]).getNome();
+                 out += ", " + ((Configuracao) arr[1]).getId();
              }
              System.out.println(out);
 
